@@ -20,7 +20,6 @@ namespace GUI
         public FrmAdAccount()
         {
             InitializeComponent();
-            DAO.qlcafe dbContext = new DAO.qlcafe();
             LoadData();
         }
         void LoadData()
@@ -35,7 +34,6 @@ namespace GUI
             txtDisplayName.DataBindings.Add(new Binding("Text", girdControlAcount.DataSource, "DisplayName"));
             txtPassword.DataBindings.Add(new Binding("Text", girdControlAcount.DataSource, "Password"));
             cbRole.DataBindings.Add(new Binding("Text", girdControlAcount.DataSource, "Role"));
-
 
         }
         void ClearBingding()
@@ -73,7 +71,7 @@ namespace GUI
         }
         bool CheckName(List<DAO.Account> list, string name) //đổi TableCoffee thành đối tượng tương ứng
         {
-            if (list.Where(p => p.UserName.Contains(name)).ToList().Count > 0)
+            if (list.Where(p => p.UserName.ToLower() ==name.ToLower()).ToList().Count > 0)
             {
                 return true;
             }
@@ -155,7 +153,7 @@ namespace GUI
 
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }
@@ -177,7 +175,7 @@ namespace GUI
                     i.Role = role;
                     AccountBUS.Update(i);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }
@@ -197,12 +195,5 @@ namespace GUI
             EditGrid(DEL);
             BtnHide(true);
         }
-
-        private void barBtnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-
     }
 }

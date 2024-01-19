@@ -99,5 +99,10 @@ namespace GUI
             login.Show();
             this.Close();
         }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(FrmAccountInfo));
+        }
     }
 }

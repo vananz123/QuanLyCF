@@ -157,7 +157,7 @@ namespace GUI
                         CategoryBUS.Insert(categoryFood);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }
@@ -173,7 +173,7 @@ namespace GUI
                     i.Name = name;
                     CategoryBUS.Update(i);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }

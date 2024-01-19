@@ -32,6 +32,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v22.2.Core, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -71,6 +91,7 @@
     <Reference Include="DevExpress.XtraTreeList.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeMap.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -91,6 +112,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAccountInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAccountInfo.Designer.cs">
+      <DependentUpon>FrmAccountInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAdAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +147,12 @@
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMsg.Designer.cs">
+      <DependentUpon>FrmMsg.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrder.cs">
       <SubType>Form</SubType>
@@ -177,6 +210,15 @@
     <Compile Include="Reports\FrmReportListFood.Designer.cs">
       <DependentUpon>FrmReportListFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\FrmReportSales.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmReportSales.Designer.cs">
+      <DependentUpon>FrmReportSales.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAccountInfo.resx">
+      <DependentUpon>FrmAccountInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAdAccount.resx">
       <DependentUpon>FrmAdAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMsg.resx">
+      <DependentUpon>FrmMsg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.cs</DependentUpon>
@@ -228,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FrmReportListFood.resx">
       <DependentUpon>FrmReportListFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FrmReportSales.resx">
+      <DependentUpon>FrmReportSales.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\DAO.Bill.datasource" />
     <None Include="Properties\Settings.settings">

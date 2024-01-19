@@ -25,7 +25,6 @@ namespace GUI
         {
 
         }
-
         private void FrmStatistical_Load(object sender, EventArgs e)
         {
             List<Bill> listbill = BillBUS.GetAll();
@@ -36,7 +35,6 @@ namespace GUI
             }
             chartControlSales.Series.Add(seri);
             seri.Label.TextPattern = "{A}: {VP: p0}";
-
         }
     }
 }

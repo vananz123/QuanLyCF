@@ -29,127 +29,129 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl1.Location = new System.Drawing.Point(0, 0);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(718, 39);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "ĐĂNG NHẬP";
-            // 
             // groupControl1
             // 
+            this.groupControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.groupControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.Appearance.Options.UseBackColor = true;
             this.groupControl1.Appearance.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.txtPass);
             this.groupControl1.Controls.Add(this.txtUser);
-            this.groupControl1.Location = new System.Drawing.Point(124, 78);
+            this.groupControl1.Location = new System.Drawing.Point(124, 45);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(441, 267);
+            this.groupControl1.Size = new System.Drawing.Size(441, 356);
             this.groupControl1.TabIndex = 1;
+            this.groupControl1.Text = "Đăng nhập";
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(58, 130);
+            this.labelControl3.Location = new System.Drawing.Point(11, 172);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(101, 29);
+            this.labelControl3.Size = new System.Drawing.Size(82, 24);
             this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "password";
+            this.labelControl3.Text = "Mật khẩu";
             // 
             // simpleButton1
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(308, 209);
+            this.simpleButton1.Location = new System.Drawing.Point(11, 293);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(112, 34);
+            this.simpleButton1.Size = new System.Drawing.Size(425, 42);
             this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Login";
+            this.simpleButton1.Text = "Đăng nhập";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(58, 73);
+            this.labelControl2.Location = new System.Drawing.Point(11, 70);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(105, 29);
+            this.labelControl2.Size = new System.Drawing.Size(123, 24);
             this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "username";
+            this.labelControl2.Text = "Tên tài khoản";
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(200, 122);
+            this.txtPass.Location = new System.Drawing.Point(11, 202);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(220, 36);
+            this.txtPass.Size = new System.Drawing.Size(425, 36);
             this.txtPass.TabIndex = 1;
+            this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(200, 65);
+            this.txtUser.Location = new System.Drawing.Point(11, 100);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(220, 36);
+            this.txtUser.Size = new System.Drawing.Size(425, 36);
             this.txtUser.TabIndex = 0;
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
             // 
-            // simpleButton2
+            // label1
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(567, 403);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(112, 34);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Out";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "TK: admin ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "MK: admin";
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 463);
-            this.Controls.Add(this.simpleButton2);
+            this.ClientSize = new System.Drawing.Size(711, 482);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.labelControl1);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

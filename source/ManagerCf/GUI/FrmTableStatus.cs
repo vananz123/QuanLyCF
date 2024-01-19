@@ -32,12 +32,12 @@ namespace GUI
                     {
                        if(r.Status == "Trống")
                        {
-                            TableBUS.UpdateStaticTable(r.ID, true);
+                            TableBUS.UpdateStatusTable(r.ID, true);
 
                        }
                        else
                        {
-                            TableBUS.UpdateStaticTable(r.ID, false);
+                            TableBUS.UpdateStatusTable(r.ID, false);
                        }
                     }
                 }

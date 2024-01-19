@@ -19,25 +19,47 @@ namespace GUI
         {
             InitializeComponent();
         }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
+        void login()
         {
             Account account = AccountBUS.CheckLogin(txtUser.Text, txtPass.Text);
-            if (account!= null)
+            if (account != null)
             {
-                FrmMain main =new FrmMain(account);
+                AccountBUS.SetAccount(account);
+                FrmMain main = new FrmMain(account);
                 main.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("ko");
+                MessageBox.Show("Sai username hoặc password!!");
             }
+        }
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            login();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                login();
+            }
+        }
+
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                login();
+            }
+        }
+
+
     }
 }

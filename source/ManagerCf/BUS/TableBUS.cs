@@ -34,7 +34,7 @@ namespace BUS
         {
             itable.Update(obj);
         }
-        public static void UpdateStaticTable(int id,bool status)
+        public static void UpdateStatusTable(int id,bool status)
         {
             TableCoffee tableCoffee = GetById(id);
             if (status == true)

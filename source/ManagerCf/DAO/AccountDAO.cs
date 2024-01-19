@@ -8,53 +8,39 @@ namespace DAO
 {
     public class AccountDAO : IAccount
     {
+        qlcafe db = new qlcafe();
         public void Delete(Account obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.Accounts.Attach(obj);
-                db.Accounts.Remove(obj);
-                db.SaveChanges();
-            }
+            db.Accounts.Attach(obj);
+            db.Accounts.Remove(obj);
+            db.SaveChanges();
         }
 
 
         public List<Account> GetAll()
         {
-            using (qlcafe db = new qlcafe())
-            {
-                var acc = from a in db.Accounts
-                          select a;
-                return acc.ToList();
-            }
+            var acc = from a in db.Accounts
+                      select a;
+            return acc.ToList();
         }
 
-        public Account GetById(int id)
+        public Account GetByUserName(string username)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                return db.Accounts.Find(id);
-            }
+            return db.Accounts.Find(username);
         }
 
         public Account Insert(Account obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.Accounts.Add(obj);
-                db.SaveChanges();
-                return obj;
-            }
+            db.Accounts.Add(obj);
+            db.SaveChanges();
+            return obj;
         }
 
         public void Update(Account obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.Accounts.Attach(obj);
-                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            db.Accounts.Attach(obj);
+            db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

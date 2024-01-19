@@ -34,9 +34,7 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdAccount));
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.cbRole = new DevExpress.XtraEditors.ComboBoxEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -47,6 +45,8 @@ namespace GUI
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtDisplayName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -77,8 +77,9 @@ namespace GUI
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDisplayName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             this.sidePanel1.SuspendLayout();
@@ -118,34 +119,17 @@ namespace GUI
             // 
             // cbRole
             // 
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
+            this.cbRole.Location = new System.Drawing.Point(638, 91);
+            this.cbRole.MenuManager = this.barManager1;
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbRole.Properties.Items.AddRange(new object[] {
             "Nhân viên",
             "Quản lý"});
-            this.cbRole.Location = new System.Drawing.Point(638, 90);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(4);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(320, 27);
-            this.cbRole.TabIndex = 9;
-            this.cbRole.Text = "Nhân viên";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(536, 94);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(45, 19);
-            this.labelControl4.TabIndex = 8;
-            this.labelControl4.Text = "vai trò";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(141, 94);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPassword.MenuManager = this.barManager1;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(321, 26);
-            this.txtPassword.TabIndex = 7;
+            this.cbRole.Properties.NullText = "--Chọn vai trò--";
+            this.cbRole.Size = new System.Drawing.Size(321, 26);
+            this.cbRole.TabIndex = 10;
             // 
             // barManager1
             // 
@@ -235,6 +219,24 @@ namespace GUI
             this.barButtonItem4.Caption = "barButtonItem4";
             this.barButtonItem4.Id = 3;
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(536, 94);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(45, 19);
+            this.labelControl4.TabIndex = 8;
+            this.labelControl4.Text = "vai trò";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(141, 94);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.MenuManager = this.barManager1;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(321, 26);
+            this.txtPassword.TabIndex = 7;
             // 
             // labelControl3
             // 
@@ -462,7 +464,6 @@ namespace GUI
             this.barBtnPrint.Id = 5;
             this.barBtnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnPrint.ImageOptions.SvgImage")));
             this.barBtnPrint.Name = "barBtnPrint";
-            this.barBtnPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrint_ItemClick);
             // 
             // bar6
             // 
@@ -535,8 +536,9 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDisplayName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             this.sidePanel1.ResumeLayout(false);
@@ -588,8 +590,8 @@ namespace GUI
         private DevExpress.XtraGrid.Columns.GridColumn DisplayName;
         private DevExpress.XtraGrid.Columns.GridColumn Password;
         private DevExpress.XtraGrid.Columns.GridColumn Role;
-        private System.Windows.Forms.ComboBox cbRole;
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
+        private DevExpress.XtraEditors.ComboBoxEdit cbRole;
     }
 }

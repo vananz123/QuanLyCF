@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DAO;
+using DevExpress.XtraReports.UI;
+using GUI.Reports;
 
 namespace GUI
 {
@@ -194,6 +196,29 @@ namespace GUI
             EditGrid(DEL);
             gridControlBill.DataSource=BillBUS.GetAll();
             
+        }
+
+        private void barBtnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DateTime date1 = dateEdit1.DateTime;
+            DateTime date2 = dateEdit2.DateTime;
+            List<Bill> bill =BillBUS.GetAll() ;
+            if (date2.Year == 0001)
+            {
+                var w = from p in BillBUS.GetAll()
+                        where p.AtCreate >= date1
+                        select p;
+                bill = w.ToList();
+            }
+            else
+            {
+                var w = from p in BillBUS.GetAll()
+                        where p.AtCreate >= date1 && p.AtCreate <= date2
+                        select p;
+                bill = w.ToList();
+            }
+            FrmReportSales frm = new FrmReportSales(bill);
+            frm.ShowPreview();
         }
     }
 }

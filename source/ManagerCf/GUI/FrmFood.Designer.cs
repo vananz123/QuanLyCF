@@ -34,6 +34,7 @@ namespace GUI
             this.lkCategory = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lkCategoryE = new DevExpress.XtraEditors.LookUpEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
@@ -66,7 +67,7 @@ namespace GUI
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.lkCategoty = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lkCategory)).BeginInit();
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -79,7 +80,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFood)).BeginInit();
             this.sidePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lkCategoty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // lkCategory
@@ -104,6 +105,7 @@ namespace GUI
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.lkCategoryE);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.cbSize);
@@ -119,6 +121,14 @@ namespace GUI
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(292, 132);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(32, 19);
+            this.labelControl5.TabIndex = 12;
+            this.labelControl5.Text = "VNG";
+            // 
             // lkCategoryE
             // 
             this.lkCategoryE.Location = new System.Drawing.Point(608, 135);
@@ -129,6 +139,7 @@ namespace GUI
             this.lkCategoryE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "ten danh muc")});
+            this.lkCategoryE.Properties.NullText = "--Chọn danh mục--";
             this.lkCategoryE.Size = new System.Drawing.Size(219, 26);
             this.lkCategoryE.TabIndex = 11;
             // 
@@ -290,6 +301,7 @@ namespace GUI
             "S",
             "M",
             "L"});
+            this.cbSize.Properties.NullText = "--Chọn loại khích cỡ--";
             this.cbSize.Properties.Tag = 1;
             this.cbSize.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cbSize.Size = new System.Drawing.Size(219, 26);
@@ -342,7 +354,7 @@ namespace GUI
             this.gridControlFood.MainView = this.gridViewFood;
             this.gridControlFood.Name = "gridControlFood";
             this.gridControlFood.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.lkCategoty});
+            this.repositoryItemLookUpEdit1});
             this.gridControlFood.Size = new System.Drawing.Size(1186, 278);
             this.gridControlFood.TabIndex = 0;
             this.gridControlFood.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -401,7 +413,7 @@ namespace GUI
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Danh mục";
-            this.gridColumn5.ColumnEdit = this.lkCategoty;
+            this.gridColumn5.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.gridColumn5.FieldName = "CategoryID";
             this.gridColumn5.MinWidth = 30;
             this.gridColumn5.Name = "gridColumn5";
@@ -443,12 +455,12 @@ namespace GUI
             this.sidePanel1.TabIndex = 6;
             this.sidePanel1.Text = "sidePanel1";
             // 
-            // lkCategoty
+            // repositoryItemLookUpEdit1
             // 
-            this.lkCategoty.AutoHeight = false;
-            this.lkCategoty.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkCategoty.Name = "lkCategoty";
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
             // FrmFood
             // 
@@ -477,7 +489,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFood)).EndInit();
             this.sidePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lkCategoty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,6 +531,7 @@ namespace GUI
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkCategory;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox lkCategoty;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
     }
 }

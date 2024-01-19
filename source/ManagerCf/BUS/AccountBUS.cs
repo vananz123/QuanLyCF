@@ -10,22 +10,38 @@ namespace BUS
     public static class AccountBUS
     {
         static IAccount iaccount;
+        static Account account;
         static AccountBUS()
         {
             iaccount = new AccountDAO();
         }
+        public static void SetAccount(Account acc)
+        {
+            account = acc;
+        }
+        public static Account GetAccount()
+        {
+            return account;
+        }
         public static Account CheckLogin(string user,string pw)
         {
-            Account acc = iaccount.GetAll().Where(p => p.UserName.Contains(user) && p.Password.Contains(pw)).FirstOrDefault();
+            Account acc=null;
+            foreach(var a in AccountBUS.GetALL())
+            {
+                if(a.UserName == user && a.Password == pw)
+                {
+                    acc = a;
+                }
+            }
             return acc;
         }
         public static List<Account> GetALL()
         {
             return iaccount.GetAll();
         }
-        public static Account GetById(int id)
+        public static Account GetByUserName(string username)
         {
-            return iaccount.GetById(id);
+            return iaccount.GetByUserName(username);
         }
         public static Account Insert(Account obj)
         {

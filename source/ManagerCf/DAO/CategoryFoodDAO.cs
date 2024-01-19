@@ -8,50 +8,36 @@ namespace DAO
 {
     public class CategoryFoodDAO : ICategoryFood
     {
+        qlcafe db = new qlcafe();
         public void Delete(CategoryFood obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.CategoryFoods.Attach(obj);
-                db.CategoryFoods.Remove(obj);
-                db.SaveChanges();
-            }
+            db.CategoryFoods.Attach(obj);
+            db.CategoryFoods.Remove(obj);
+            db.SaveChanges();
         }
 
         public List<CategoryFood> GetAll()
         {
-            using (qlcafe db = new qlcafe())
-            {
-                return db.CategoryFoods.ToList();
-            }
+            return db.CategoryFoods.ToList();
         }
 
         public CategoryFood GetById(int id)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                return db.CategoryFoods.Find(id);
-            }
+            return db.CategoryFoods.Find(id);
         }
 
         public CategoryFood Insert(CategoryFood obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.CategoryFoods.Add(obj);
-                db.SaveChanges();
-                return obj;
-            }
+            db.CategoryFoods.Add(obj);
+            db.SaveChanges();
+            return obj;
         }
 
         public void Update(CategoryFood obj)
         {
-            using (qlcafe db = new qlcafe())
-            {
-                db.CategoryFoods.Attach(obj);
-                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            db.CategoryFoods.Attach(obj);
+            db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

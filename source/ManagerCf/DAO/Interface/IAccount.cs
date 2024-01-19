@@ -9,7 +9,7 @@ namespace DAO
     public interface IAccount
     {
         List<Account> GetAll();
-        Account GetById(int id);
+        Account GetByUserName(string username);
         Account Insert(Account obj);
         void Update(Account obj);
         void Delete(Account obj);

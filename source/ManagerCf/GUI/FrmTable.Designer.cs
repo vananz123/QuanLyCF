@@ -37,6 +37,7 @@ namespace GUI
             this.Nameee = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
+            this.barBtnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnEdit = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDel = new DevExpress.XtraBars.BarButtonItem();
@@ -54,7 +55,6 @@ namespace GUI
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
-            this.barBtnRefresh = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -147,6 +147,13 @@ namespace GUI
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
+            // 
+            // barBtnRefresh
+            // 
+            this.barBtnRefresh.Id = 7;
+            this.barBtnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnRefresh.ImageOptions.SvgImage")));
+            this.barBtnRefresh.Name = "barBtnRefresh";
+            this.barBtnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnRefresh_ItemClick);
             // 
             // barBtnAdd
             // 
@@ -268,9 +275,9 @@ namespace GUI
             // 
             this.labelControl1.Location = new System.Drawing.Point(13, 38);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(49, 19);
+            this.labelControl1.Size = new System.Drawing.Size(58, 19);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Số bàn";
+            this.labelControl1.Text = "Tên bàn";
             // 
             // sidePanel1
             // 
@@ -293,13 +300,6 @@ namespace GUI
             this.sidePanel2.Size = new System.Drawing.Size(1115, 475);
             this.sidePanel2.TabIndex = 17;
             this.sidePanel2.Text = "sidePanel2";
-            // 
-            // barBtnRefresh
-            // 
-            this.barBtnRefresh.Id = 7;
-            this.barBtnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.barBtnRefresh.Name = "barBtnRefresh";
-            this.barBtnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnRefresh_ItemClick);
             // 
             // FrmTable
             // 

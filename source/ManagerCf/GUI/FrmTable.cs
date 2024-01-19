@@ -12,6 +12,7 @@ using BUS;
 using DAO;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Data.Entity;
+using System.Globalization;
 
 namespace GUI
 {
@@ -63,7 +64,7 @@ namespace GUI
         }
         bool CheckName(List<DAO.TableCoffee> list, string name) //đổi TableCoffee thành đối tượng tương ứng
         {
-            if(list.Where(p => p.Name.Contains(name)).ToList().Count > 0)
+            if(list.Where(p => p.Name.ToLower()==name.ToLower()).ToList().Count > 0)
             {
                 return true;
             }
@@ -101,7 +102,7 @@ namespace GUI
             }
             if(ADD == true)
             {
-                string name = txtEditTable.Text;
+                string name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtEditTable.Text.ToLower());
                 try
                 {
                     if (CheckName(TableBUS.GetAll(), name) == true)
@@ -114,7 +115,7 @@ namespace GUI
                         TableBUS.Insert(tableCoffee);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }
@@ -130,7 +131,7 @@ namespace GUI
                     i.Name = name;
                     TableBUS.Update(i);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }

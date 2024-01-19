@@ -21,25 +21,21 @@ namespace GUI
         public FrmFood()
         {
             InitializeComponent();
-            LoadData();
             
         }
-        List<Food> listrp;
         bool ADD = false;
         bool DEL = false;
         bool EDIT = false;
         void LoadData()
         {
             gridControlFood.DataSource = FoodBUS.GetAll();
-            listrp = FoodBUS.GetAll();
+            repositoryItemLookUpEdit1.DataSource = CategoryBUS.GetAll();
+            repositoryItemLookUpEdit1.DisplayMember = "Name";
+            repositoryItemLookUpEdit1.ValueMember = "ID";
+
             lkCategoryE.Properties.DataSource = CategoryBUS.GetAll();
             lkCategoryE.Properties.DisplayMember = "Name";
             lkCategoryE.Properties.ValueMember = "ID";
-
-            
-            lkCategory.DataSource = CategoryBUS.GetAll();
-            lkCategory.DisplayMember = "Name";
-            lkCategory.ValueMember = "ID";
 
         }
         void AddBinding()
@@ -84,7 +80,7 @@ namespace GUI
         }
         bool CheckName(List<Food> list, string name) //đổi TableCoffee thành đối tượng tương ứng
         {
-            if (list.Where(p => p.Name.Contains(name)).ToList().Count > 0)
+            if (list.Where(p => p.Name.ToLower() == name.ToLower()).ToList().Count > 0)
             {
                 return true;
             }
@@ -119,7 +115,6 @@ namespace GUI
 
         private void barBtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             if (DEL == true)
             {
                 for (int i = 0; i < gridViewFood.RowCount; i++)
@@ -141,36 +136,43 @@ namespace GUI
             if (ADD == true)
             {
                 string name = txtFood.Text;
-                string size = "";
-                if(cbSize.SelectedIndex == 0)
+                int selectedSize = cbSize.SelectedIndex;
+                string price = txtPrice.Text;
+                if (name != "" && selectedSize != -1 && price != "")
                 {
-                    size = "";
-                }
-                else
-                {
-                    size = cbSize.Text;
-                }
-                int price = Int32.Parse(txtPrice.Text);
-                int Category = Convert.ToInt32(lkCategoryE.GetColumnValue("ID").ToString());
-                
-                try
-                {
-                    if (CheckName(FoodBUS.GetAll(), name) == true)
+                    string size = "";
+                    if (selectedSize == 0)
                     {
-                        MessageBox.Show("Tên đã tồn tại");
+                        size = "";
                     }
                     else
                     {
-                        CategoryFood category = CategoryBUS.GetById(Category);
-                        Food food = new Food() { Name = name, Size = size, Price = price, CategoryID = category.ID };
-                        FoodBUS.Insert(food);
+                        size = cbSize.Text;
                     }
+                    try
+                    {
+                        string Category = lkCategoryE.GetColumnValue("ID").ToString();
+                        if (CheckName(FoodBUS.GetAll(), name) == true)
+                        {
+                            MessageBox.Show("Tên đã tồn tại");
+                        }
+                        else
+                        {
+                            CategoryFood category = CategoryBUS.GetById(Convert.ToInt32(Category));
+                            Food food = new Food() { Name = name, Size = size, Price = Convert.ToInt32(price), CategoryID = category.ID };
+                            FoodBUS.Insert(food);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    ADD = false;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!");
                 }
-                ADD = false;
             }
             if (EDIT == true)
             {
@@ -188,7 +190,7 @@ namespace GUI
                     i.CategoryID = Category;
                     FoodBUS.Update(i);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("lỗi");
                 }
@@ -197,7 +199,6 @@ namespace GUI
             BtnHide(true);
             ClearBingding();
             LoadData();
-
         }
 
         private void barBtnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -212,6 +213,7 @@ namespace GUI
 
         private void FrmFood_Load(object sender, EventArgs e)
         {
+            LoadData();
             BtnHide(true);
             txtFood.Enabled = false;
         }

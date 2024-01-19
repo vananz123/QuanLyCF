@@ -17,7 +17,7 @@ namespace GUI.Reports
         {
             InitializeComponent();
         }
-        public FrmReportBill(int billid)
+        public FrmReportBill(int billid,int customerPay)
         {
             InitializeComponent();
             Bill bill = BillBUS.GetById(billid);
@@ -33,8 +33,9 @@ namespace GUI.Reports
                                 }).ToList();
             pTable.Value = bill.TableID;
             pAtCreate.Value = bill.AtCreate;
-            pTotalPrice.Value = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00} VNĐ", bill.TotalPrice);
-
+            pTotalPrice.Value = string.Format(new CultureInfo("vi-VN"), "{0:#,##0} VNĐ", bill.TotalPrice);
+            pCustomerPay.Value = string.Format(new CultureInfo("vi-VN"), "{0:#,##0} VNĐ", customerPay);
+            pChange.Value = string.Format(new CultureInfo("vi-VN"), "{0:#,##0} VNĐ", customerPay- bill.TotalPrice);
             this.DataSource = billinfofood;
             lbName.DataBindings.Add("Text", billinfofood, "Name");
             lbSize.DataBindings.Add("Text", billinfofood, "Size");

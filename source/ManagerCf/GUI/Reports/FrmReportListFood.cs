@@ -17,18 +17,19 @@ namespace GUI.Reports
             InitializeComponent();
         }
         DataTable listFood;
-        public FrmReportListFood(DataTable l)
+        public FrmReportListFood(DataTable l,int table)
         {
             InitializeComponent();
             this.listFood = l;
             this.DataSource = listFood;
+            pTable.Value = table.ToString();
             load();
         }
         void load()
         {
             txtName.DataBindings.Add("Text", listFood, "Name");
             txtSize.DataBindings.Add("Text", listFood, "Size");
-            txtPrice.DataBindings.Add("Text", listFood, "Price");
+            txtAmount.DataBindings.Add("Text", listFood, "Amount");
         }
 
     }

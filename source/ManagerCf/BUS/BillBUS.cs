@@ -65,12 +65,12 @@ namespace BUS
                     InsertBillInfo(billInfo);
                 }
                 return b.ID;
-            }catch (Exception e)
+            }catch (Exception)
             {
                 return 0;
             }
         }
-        public static bool ChuyenBan(int idbill,int totalprice, DataTable dataBillInfo)
+        public static bool Add_Before(int idbill,int totalprice, DataTable dataBillInfo)
         {
             try
             {
@@ -80,7 +80,6 @@ namespace BUS
                 {
                     int FoodID = Int32.Parse(dr["ID"].ToString());
                     int Amount = Int32.Parse(dr["Amount"].ToString());
-                  
                     BillInfo billInfo2= listbillInfo.Where(p => p.FoodID == FoodID).FirstOrDefault();
                     if (billInfo2 != null)
                     {
@@ -99,7 +98,9 @@ namespace BUS
                 return true;
             }
             catch (Exception ex)
+            
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
